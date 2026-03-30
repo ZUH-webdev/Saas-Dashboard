@@ -11,16 +11,23 @@ import Footer from './components/Footer'
 
 function App() {
   return (
-    <div className="min-h-screen bg-slate-950 text-white overflow-hidden">
+    <div className="min-h-screen bg-slate-950 text-white overflow-x-hidden">
+      
+      {/* Navbar directly (NO wrapper) */}
       <Navbar />
-      <Hero />
-      <LogoStrip />
-      <Features />
-      <HowItWorks />
-      <ProductPreview />
-      <Pricing />
-      <Testimonials />
-      <CTA />
+
+      {/* Main content with offset */}
+      <main className="pt-20">
+        <Hero />
+        <LogoStrip />
+        <Features />
+        <HowItWorks />
+        <ProductPreview />
+        <Pricing />
+        <Testimonials />
+        <CTA />
+      </main>
+
       <Footer />
     </div>
   )

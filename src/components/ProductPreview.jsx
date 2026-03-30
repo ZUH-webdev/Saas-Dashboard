@@ -4,15 +4,15 @@ export default function ProductPreview() {
   const [activeTab, setActiveTab] = useState('dashboard');
 
   return (
-    <section className="relative bg-gradient-to-b from-slate-950 to-slate-900 py-24 md:py-32 overflow-hidden">
+    <section className="relative w-full bg-gradient-to-b from-slate-950 to-slate-900 py-20 md:py-28 lg:py-32 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0">
         <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-96 h-96 bg-blue-600/5 rounded-full blur-3xl"></div>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 w-full">
         {/* Section Header */}
-        <div className="max-w-2xl mx-auto text-center mb-16 md:mb-24">
+        <div className="max-w-2xl mx-auto text-center mb-16 md:mb-20 lg:mb-24">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
             Powerful Dashboard Built for Scale
           </h2>
@@ -22,7 +22,7 @@ export default function ProductPreview() {
         </div>
 
         {/* Tabs */}
-        <div className="flex flex-wrap gap-3 mb-12 justify-center">
+        <div className="flex flex-wrap gap-2 md:gap-3 mb-10 md:mb-12 justify-center">
           {[
             { id: 'dashboard', label: '📊 Analytics Dashboard', title: 'Analytics Dashboard' },
             { id: 'automation', label: '⚙️ Automation Workflows', title: 'Workflow Automation' },
@@ -31,7 +31,7 @@ export default function ProductPreview() {
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${
+              className={`px-4 md:px-6 py-2 md:py-3 rounded-lg font-semibold transition-all duration-300 text-sm md:text-base ${
                 activeTab === tab.id
                   ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg shadow-blue-500/30'
                   : 'bg-white/10 text-gray-300 hover:text-white border border-white/10 hover:border-white/20'
@@ -43,7 +43,7 @@ export default function ProductPreview() {
         </div>
 
         {/* Preview Container */}
-        <div className="relative rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur p-8 overflow-hidden">
+        <div className="relative rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur p-6 md:p-8 overflow-hidden">
           {/* Glow effect */}
           <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 pointer-events-none"></div>
 
@@ -74,7 +74,7 @@ export default function ProductPreview() {
                 {/* Chart */}
                 <div className="bg-white/5 border border-white/10 rounded-lg p-6">
                   <p className="text-xs text-gray-500 font-semibold uppercase tracking-wider mb-6">Revenue Trend (Last 30 days)</p>
-                  <div className="flex items-end gap-2 h-40">
+                  <div className="flex items-end gap-1 md:gap-2 h-40">
                     {[45, 52, 48, 61, 55, 70, 65, 78, 72, 85, 90, 88, 95, 92, 98, 88, 92, 85, 78, 82, 88, 95, 92, 98, 105, 102, 110, 108, 115, 120].map((height, i) => (
                       <div
                         key={i}
@@ -182,7 +182,7 @@ export default function ProductPreview() {
         </div>
 
         {/* Feature cards below preview */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mt-12 md:mt-16">
           {[
             { title: 'Real-time Sync', desc: 'Data updates instantly across all your tools' },
             { title: 'Custom Reports', desc: 'Generate reports tailored to your needs' },

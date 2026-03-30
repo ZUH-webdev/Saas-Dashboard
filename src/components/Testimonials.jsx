@@ -27,16 +27,16 @@ export default function Testimonials() {
   ];
 
   return (
-    <section id="testimonials" className="relative bg-gradient-to-b from-slate-900 to-slate-950 py-24 md:py-32 overflow-hidden">
+    <section id="testimonials" className="relative w-full bg-gradient-to-b from-slate-900 to-slate-950 py-20 md:py-28 lg:py-32 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0">
         <div className="absolute top-1/3 left-0 w-96 h-96 bg-blue-600/5 rounded-full blur-3xl"></div>
         <div className="absolute bottom-1/3 right-0 w-96 h-96 bg-purple-600/5 rounded-full blur-3xl"></div>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 w-full">
         {/* Section Header */}
-        <div className="max-w-2xl mx-auto text-center mb-16 md:mb-24">
+        <div className="max-w-2xl mx-auto text-center mb-16 md:mb-20 lg:mb-24">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
             Loved by teams worldwide
           </h2>
@@ -46,7 +46,7 @@ export default function Testimonials() {
         </div>
 
         {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-12 md:mb-16">
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
@@ -82,7 +82,7 @@ export default function Testimonials() {
         </div>
 
         {/* Trust Indicators */}
-        <div className="bg-gradient-to-r from-white/5 to-white/[0.02] border border-white/10 rounded-2xl p-8 md:p-12">
+        <div className="bg-gradient-to-r from-white/5 to-white/[0.02] border border-white/10 rounded-2xl p-6 md:p-8 lg:p-12">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
               <p className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-2">10K+</p>

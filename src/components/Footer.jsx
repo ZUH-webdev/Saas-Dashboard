@@ -36,10 +36,10 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="relative bg-gradient-to-b from-slate-900 to-slate-950 border-t border-white/10">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16 md:py-24">
+    <footer className="relative w-full bg-gradient-to-b from-slate-900 to-slate-950 border-t border-white/10">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 py-12 md:py-16 lg:py-24 w-full">
         {/* Main footer content */}
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-8 mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-6 md:gap-8 mb-8 md:mb-12">
           {/* Brand column */}
           <div className="col-span-2 md:col-span-1 space-y-4">
             <div className="flex items-center space-x-2">
@@ -86,7 +86,7 @@ export default function Footer() {
         </div>
 
         {/* Newsletter signup */}
-        <div className="mb-12 pb-12 border-b border-white/10">
+        <div className="mb-8 md:mb-12 pb-8 md:pb-12 border-b border-white/10">
           <div className="max-w-md">
             <h3 className="text-lg font-semibold text-white mb-2">Stay updated</h3>
             <p className="text-sm text-gray-400 mb-4">
@@ -106,7 +106,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom footer */}
-        <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 text-sm text-gray-400">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0 text-sm text-gray-400">
           <p>© {currentYear} BuildAI. All rights reserved.</p>
           <div className="flex items-center space-x-4">
             <span className="flex items-center space-x-1">

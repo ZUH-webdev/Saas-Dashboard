@@ -60,16 +60,16 @@ export default function Pricing() {
   ];
 
   return (
-    <section id="pricing" className="relative bg-gradient-to-b from-slate-900 to-slate-950 py-24 md:py-32 overflow-hidden">
+    <section id="pricing" className="relative w-full bg-gradient-to-b from-slate-900 to-slate-950 py-20 md:py-28 lg:py-32 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0">
         <div className="absolute top-1/3 right-0 w-96 h-96 bg-purple-600/5 rounded-full blur-3xl"></div>
         <div className="absolute bottom-1/3 left-0 w-96 h-96 bg-blue-600/5 rounded-full blur-3xl"></div>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 w-full">
         {/* Section Header */}
-        <div className="max-w-2xl mx-auto text-center mb-16 md:mb-24">
+        <div className="max-w-2xl mx-auto text-center mb-16 md:mb-20 lg:mb-24">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
             Simple, Transparent Pricing
           </h2>
@@ -78,10 +78,10 @@ export default function Pricing() {
           </p>
 
           {/* Billing Toggle */}
-          <div className="inline-flex items-center space-x-4 bg-white/10 border border-white/20 rounded-full p-2">
+          <div className="inline-flex items-center space-x-2 md:space-x-4 bg-white/10 border border-white/20 rounded-full p-2">
             <button
               onClick={() => setBillingCycle('monthly')}
-              className={`px-6 py-2 rounded-full font-semibold transition-all duration-300 ${
+              className={`px-4 md:px-6 py-2 rounded-full font-semibold transition-all duration-300 text-sm md:text-base ${
                 billingCycle === 'monthly'
                   ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white'
                   : 'text-gray-400 hover:text-white'
@@ -91,7 +91,7 @@ export default function Pricing() {
             </button>
             <button
               onClick={() => setBillingCycle('yearly')}
-              className={`px-6 py-2 rounded-full font-semibold transition-all duration-300 flex items-center space-x-2 ${
+              className={`px-4 md:px-6 py-2 rounded-full font-semibold transition-all duration-300 flex items-center space-x-2 text-sm md:text-base ${
                 billingCycle === 'yearly'
                   ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white'
                   : 'text-gray-400 hover:text-white'
@@ -104,7 +104,7 @@ export default function Pricing() {
         </div>
 
         {/* Pricing Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-16">
           {plans.map((plan, index) => (
             <div
               key={index}
@@ -177,8 +177,8 @@ export default function Pricing() {
         </div>
 
         {/* FAQ Section */}
-        <div className="max-w-3xl mx-auto pt-16 border-t border-white/10">
-          <h3 className="text-2xl font-bold text-white text-center mb-12">Frequently Asked Questions</h3>
+        <div className="max-w-3xl mx-auto pt-12 md:pt-16 border-t border-white/10">
+          <h3 className="text-2xl font-bold text-white text-center mb-8 md:mb-12">Frequently Asked Questions</h3>
 
           <div className="space-y-4">
             {[

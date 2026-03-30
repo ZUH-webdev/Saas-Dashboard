@@ -1,118 +1,128 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const scrollToSection = (id) => {
-    const element = document.getElementById(id);
-    element?.scrollIntoView({ behavior: 'smooth' });
+    const el = document.getElementById(id);
+    el?.scrollIntoView({ behavior: "smooth" });
     setIsOpen(false);
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-900/80 backdrop-blur-xl border-b border-white/10">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <div className="flex justify-between items-center h-20">
-          {/* Logo */}
-          <div className="flex items-center space-x-3 group cursor-pointer">
-            <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center flex-shrink-0">
-              <span className="text-white font-bold text-sm">AI</span>
-            </div>
-            <span className="text-white font-bold text-lg tracking-tight hidden sm:inline">BuildAI</span>
+    <header className="fixed top-0 left-0 w-full z-50 bg-slate-950/70 backdrop-blur-2xl border-b border-white/5">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 h-20 flex items-center justify-between font-sans">
+        
+        {/* LOGO + BRAND */}
+        <div className="flex items-center gap-3 cursor-pointer group">
+          {/* Custom Logo */}
+          <div className="relative w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 via-purple-600 to-pink-500 flex items-center justify-center shadow-lg">
+            <span className="text-white font-bold text-sm tracking-wide">
+              N
+            </span>
+            <div className="absolute inset-0 rounded-xl bg-white/10 blur-xl opacity-40 group-hover:opacity-70 transition"></div>
           </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-12">
-            <button
-              onClick={() => scrollToSection('features')}
-              className="text-gray-300 hover:text-white transition-colors duration-200 text-sm font-medium"
-            >
-              Features
-            </button>
-            <button
-              onClick={() => scrollToSection('how-it-works')}
-              className="text-gray-300 hover:text-white transition-colors duration-200 text-sm font-medium"
-            >
-              How It Works
-            </button>
-            <button
-              onClick={() => scrollToSection('pricing')}
-              className="text-gray-300 hover:text-white transition-colors duration-200 text-sm font-medium"
-            >
-              Pricing
-            </button>
-            <button
-              onClick={() => scrollToSection('testimonials')}
-              className="text-gray-300 hover:text-white transition-colors duration-200 text-sm font-medium"
-            >
-              Testimonials
-            </button>
-          </div>
+          {/* Brand Name */}
+          <span className="text-white font-semibold text-lg tracking-tight">
+            NexusAI
+          </span>
+        </div>
 
-          {/* Right Side - CTA & Auth */}
-          <div className="hidden md:flex items-center space-x-6">
-            <button className="text-gray-300 hover:text-white transition-colors duration-200 text-sm font-medium">
-              Sign In
+        {/* CENTER NAV */}
+        <nav className="hidden lg:flex items-center gap-10">
+          {[
+            { label: "Features", id: "features" },
+            { label: "How it works", id: "how-it-works" },
+            { label: "Pricing", id: "pricing" },
+            { label: "Testimonials", id: "testimonials" },
+          ].map((item) => (
+            <button
+              key={item.id}
+              onClick={() => scrollToSection(item.id)}
+              className="text-sm text-gray-400 hover:text-white transition duration-200 font-medium tracking-wide"
+            >
+              {item.label}
             </button>
-            <button className="px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white text-sm font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-blue-500/50">
+          ))}
+        </nav>
+
+        {/* RIGHT SIDE */}
+        <div className="hidden md:flex items-center gap-5">
+          <button className="text-sm text-gray-400 hover:text-white transition">
+            Sign in
+          </button>
+
+          {/* PREMIUM CTA BUTTON */}
+          <button className="relative px-6 py-2.5 rounded-xl font-semibold text-sm text-white overflow-hidden group">
+            
+            {/* Glow Background */}
+            <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 opacity-90 group-hover:opacity-100 transition"></div>
+
+            {/* Glass Overlay */}
+            <div className="absolute inset-[1px] rounded-xl bg-slate-950/60 backdrop-blur-xl"></div>
+
+            {/* Text */}
+            <span className="relative z-10 flex items-center gap-2">
               Get Started
-            </button>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden inline-flex items-center justify-center p-2 text-gray-300 hover:text-white"
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d={isOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16M4 18h16'}
-              />
-            </svg>
+              <span className="group-hover:translate-x-1 transition-transform">
+                →
+              </span>
+            </span>
           </button>
         </div>
 
-        {/* Mobile Menu */}
-        {isOpen && (
-          <div className="md:hidden px-6 pb-6 space-y-3 border-t border-white/10">
-            <button
-              onClick={() => scrollToSection('features')}
-              className="block w-full text-left px-4 py-3 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors"
-            >
-              Features
-            </button>
-            <button
-              onClick={() => scrollToSection('how-it-works')}
-              className="block w-full text-left px-4 py-3 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors"
-            >
-              How It Works
-            </button>
-            <button
-              onClick={() => scrollToSection('pricing')}
-              className="block w-full text-left px-4 py-3 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors"
-            >
-              Pricing
-            </button>
-            <button
-              onClick={() => scrollToSection('testimonials')}
-              className="block w-full text-left px-4 py-3 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors"
-            >
-              Testimonials
-            </button>
-            <div className="flex gap-3 pt-3">
-              <button className="flex-1 px-4 py-3 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors text-sm font-medium">
-                Sign In
+        {/* MOBILE BUTTON */}
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="md:hidden text-gray-400 hover:text-white"
+        >
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            {isOpen ? (
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            ) : (
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            )}
+          </svg>
+        </button>
+      </div>
+
+      {/* MOBILE MENU */}
+      {isOpen && (
+        <div className="md:hidden border-t border-white/5 bg-slate-950/95 backdrop-blur-xl">
+          <div className="px-6 py-6 space-y-4 max-w-7xl mx-auto">
+            {[
+              { label: "Features", id: "features" },
+              { label: "How it works", id: "how-it-works" },
+              { label: "Pricing", id: "pricing" },
+              { label: "Testimonials", id: "testimonials" },
+            ].map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className="block w-full text-left text-gray-400 hover:text-white py-2 text-sm"
+              >
+                {item.label}
               </button>
-              <button className="flex-1 px-4 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg text-sm font-semibold">
+            ))}
+
+            <div className="pt-4 flex flex-col gap-3">
+              <button className="w-full py-2 text-gray-400 hover:text-white text-sm">
+                Sign in
+              </button>
+
+              <button className="w-full py-3 rounded-xl bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white font-semibold text-sm">
                 Get Started
               </button>
             </div>
           </div>
-        )}
-      </div>
-    </nav>
+        </div>
+      )}
+    </header>
   );
 }

@@ -17,6 +17,29 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: #0f172a;
+  overflow-x: hidden;
+}
+
+/* Ensure no overflow from viewport */
+html,
+body,
+#root {
+  width: 100%;
+  height: auto;
+}
+
+/* Custom container for consistent sizing */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+  width: 100%;
+}
+
+/* Ensure sections use full width properly */
+section {
+  width: 100%;
+  scroll-margin-top: 100px;
 }
 
 /* Custom scrollbar */
@@ -41,4 +64,21 @@ body {
 ::selection {
   background-color: rgba(59, 130, 246, 0.3);
   color: white;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 16px;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: 0 16px;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
 }

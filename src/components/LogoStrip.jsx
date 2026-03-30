@@ -8,8 +8,8 @@ export default function LogoStrip() {
   ];
 
   return (
-    <section className="relative bg-gradient-to-b from-slate-950 to-slate-900 py-12 border-y border-white/10">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+    <section className="relative w-full bg-gradient-to-b from-slate-950 to-slate-900 py-8 md:py-12 border-y border-white/10">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 w-full">
         <p className="text-center text-xs font-semibold text-gray-500 uppercase tracking-wider mb-8">
           Trusted by leading companies
         </p>

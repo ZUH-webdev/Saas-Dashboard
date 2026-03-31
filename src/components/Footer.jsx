@@ -36,14 +36,14 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="relative w-full bg-gradient-to-b from-slate-900 to-slate-950 border-t border-white/10">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 py-12 md:py-16 lg:py-24 w-full">
+    <footer className="relative w-full bg-linear-to-b from-slate-900 to-slate-950 border-t border-white/10">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-5 md:py-16 lg:py-24 w-full">
         {/* Main footer content */}
         <div className="grid grid-cols-2 md:grid-cols-5 gap-6 md:gap-8 mb-8 md:mb-12">
           {/* Brand column */}
           <div className="col-span-2 md:col-span-1 space-y-4">
             <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+              <div className="w-8 h-8 bg-linear-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-sm">AI</span>
               </div>
               <span className="text-white font-bold text-lg">BuildAI</span>
@@ -98,7 +98,7 @@ export default function Footer() {
                 placeholder="Enter your email"
                 className="flex-1 px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-sm text-white placeholder-gray-500 focus:outline-none focus:border-white/30 transition-colors"
               />
-              <button className="px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-lg font-medium text-sm transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-blue-500/40">
+              <button className="px-4 py-2 bg-linear-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-lg font-medium text-sm transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-blue-500/40">
                 Subscribe
               </button>
             </div>

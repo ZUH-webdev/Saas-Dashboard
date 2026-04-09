@@ -1,106 +1,100 @@
+import { motion } from "framer-motion";
+import { Quote, CheckCircle2, Star } from "lucide-react";
+
+const testimonials = [
+  {
+    name: 'Sarah Chen',
+    role: 'CEO at TechStart',
+    quote: 'NexusAI transformed how we handle data. We cut processing time by 75% and our team actually enjoys the workflow now.',
+    stats: '75% faster'
+  },
+  {
+    name: 'Marcus Johnson',
+    role: 'Product at Growth Labs',
+    quote: 'The automation capabilities alone paid for itself in the first month. Incredibly responsive engineering team.',
+    stats: '12x ROI'
+  },
+  {
+    name: 'Emma Rodriguez',
+    role: 'Founder of DataFlow',
+    quote: 'We tried every competitor. Nexus is in a league of its own. The real-time integrations are a total game-changer.',
+    stats: 'Zero Latency'
+  },
+];
+
 export default function Testimonials() {
-  const testimonials = [
-    {
-      name: 'Sarah Chen',
-      role: 'CEO, TechStart Inc',
-      company: 'TechStart Inc',
-      avatar: '👩‍💼',
-      quote: 'BuildAI transformed how we handle data. We cut processing time by 75% and our team loves the interface. Highly recommended!',
-      rating: 5,
-    },
-    {
-      name: 'Marcus Johnson',
-      role: 'Product Manager, Growth Labs',
-      company: 'Growth Labs',
-      avatar: '👨‍💼',
-      quote: 'The automation capabilities alone paid for itself in the first month. Their support team is incredibly responsive.',
-      rating: 5,
-    },
-    {
-      name: 'Emma Rodriguez',
-      role: 'Founder, DataFlow',
-      company: 'DataFlow',
-      avatar: '👩‍🚀',
-      quote: 'We tried other solutions, but BuildAI is in a league of its own. Real-time insights and integrations are game-changers.',
-      rating: 5,
-    },
-  ];
-
   return (
-    <section id="testimonials" className="relative w-full bg-gradient-to-b from-slate-900 to-slate-950 py-20 md:py-28 lg:py-32 overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0">
-        <div className="absolute top-1/3 left-0 w-96 h-96 bg-blue-600/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/3 right-0 w-96 h-96 bg-purple-600/5 rounded-full blur-3xl"></div>
-      </div>
-
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 w-full">
-        {/* Section Header */}
-        <div className="max-w-2xl mx-auto text-center mb-16 md:mb-20 lg:mb-24">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-            Loved by teams worldwide
-          </h2>
-          <p className="text-lg text-gray-400">
-            See what industry leaders are saying about BuildAI and how it transforms their workflows.
-          </p>
+    <section className="relative py-32 bg-[#020617] overflow-hidden border-t border-white/5">
+      <div className="max-w-7xl mx-auto px-6">
+        
+        {/* Minimalist Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
+          <div className="max-w-2xl">
+            <h2 className="text-4xl md:text-6xl font-bold text-white tracking-tighter leading-none mb-6">
+              Proven by the <br />
+              <span className="text-slate-500 italic">industry's best.</span>
+            </h2>
+            <p className="text-slate-400 text-lg">
+              Deployment stories from teams scaling on Nexus.
+            </p>
+          </div>
+          <div className="flex gap-2">
+             {[1, 2, 3, 4].map((i) => (
+               <div key={i} className="w-12 h-12 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-white text-[10px] font-bold italic">LOGO</div>
+             ))}
+          </div>
         </div>
 
-        {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-12 md:mb-16">
-          {testimonials.map((testimonial, index) => (
-            <div
-              key={index}
-              className="relative group h-full rounded-2xl p-6 bg-white/5 border border-white/10 hover:border-white/30 hover:bg-white/[0.08] transition-all duration-300 overflow-hidden"
+        {/* Testimonials: Bento/Masonry Style */}
+        <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
+          {testimonials.map((t, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="break-inside-avoid relative p-8 rounded-[2rem] bg-gradient-to-b from-white/[0.03] to-transparent border border-white/10 group hover:border-indigo-500/30 transition-all duration-500"
             >
-              {/* Content */}
-              <div className="relative z-10 flex flex-col h-full space-y-6">
-                {/* Rating */}
-                <div className="flex items-center space-x-1">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <span key={i} className="text-lg">⭐</span>
-                  ))}
+              <Quote className="text-indigo-500/20 absolute top-8 right-8" size={40} />
+              
+              <div className="flex items-center gap-1 mb-6">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} size={12} className="fill-indigo-500 text-indigo-500" />
+                ))}
+                <span className="text-[10px] font-black text-slate-500 ml-2 tracking-widest uppercase">Verified Result</span>
+              </div>
+
+              <p className="text-lg text-slate-200 leading-relaxed mb-8 tracking-tight">
+                "{t.quote}"
+              </p>
+
+              <div className="flex items-center justify-between pt-6 border-t border-white/5">
+                <div>
+                  <p className="text-sm font-bold text-white">{t.name}</p>
+                  <p className="text-[10px] text-slate-500 font-medium uppercase tracking-wider">{t.role}</p>
                 </div>
-
-                {/* Quote */}
-                <p className="text-gray-300 leading-relaxed italic flex-grow">
-                  "{testimonial.quote}"
-                </p>
-
-                {/* Author */}
-                <div className="flex items-center space-x-3 pt-4 border-t border-white/10">
-                  <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center flex-shrink-0 text-lg">
-                    {testimonial.avatar}
-                  </div>
-                  <div className="min-w-0">
-                    <p className="font-semibold text-white text-sm">{testimonial.name}</p>
-                    <p className="text-xs text-gray-400">{testimonial.role}</p>
-                  </div>
+                <div className="text-right">
+                  <p className="text-[10px] text-indigo-400 font-black uppercase tracking-tighter">Metric</p>
+                  <p className="text-xs font-bold text-white">{t.stats}</p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
-        {/* Trust Indicators */}
-        <div className="bg-gradient-to-r from-white/5 to-white/[0.02] border border-white/10 rounded-2xl p-6 md:p-8 lg:p-12">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div>
-              <p className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-2">10K+</p>
-              <p className="text-gray-400 text-sm font-medium">Active Users</p>
+        {/* Trust Bar: Technical Style */}
+        <div className="mt-24 grid grid-cols-2 lg:grid-cols-4 gap-px bg-white/5 border border-white/5 rounded-3xl overflow-hidden">
+          {[
+            { label: 'Cumulative Users', val: '1.2M+' },
+            { label: 'Uptime SLA', val: '99.99%' },
+            { label: 'Global Nodes', val: '240+' },
+            { label: 'Security Tier', val: 'Lvl 4' },
+          ].map((stat, i) => (
+            <div key={i} className="bg-[#020617] p-10 text-center group hover:bg-white/[0.01] transition-colors">
+              <p className="text-[10px] text-slate-500 font-bold uppercase tracking-[0.2em] mb-3">{stat.label}</p>
+              <p className="text-3xl font-bold text-white tracking-tighter group-hover:scale-105 transition-transform">{stat.val}</p>
             </div>
-            <div>
-              <p className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-2">98%</p>
-              <p className="text-gray-400 text-sm font-medium">Satisfaction</p>
-            </div>
-            <div>
-              <p className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-2">500+</p>
-              <p className="text-gray-400 text-sm font-medium">Integrations</p>
-            </div>
-            <div>
-              <p className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-2">24/7</p>
-              <p className="text-gray-400 text-sm font-medium">Support</p>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

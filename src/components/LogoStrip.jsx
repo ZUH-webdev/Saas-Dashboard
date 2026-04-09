@@ -1,28 +1,45 @@
-export default function LogoStrip() {
-  const companies = [
-    { name: 'Acme', icon: '🚀' },
-    { name: 'Vertex', icon: '⚡' },
-    { name: 'Apex', icon: '💎' },
-    { name: 'Prime', icon: '✨' },
-    { name: 'Nexus', icon: '🌟' },
-  ];
+import { motion } from "framer-motion";
 
+const companies = [
+  { name: 'ACME CORP', tech: 'CLUSTERS' },
+  { name: 'VERTEX', tech: 'NODES' },
+  { name: 'APEX', tech: 'SYSTEMS' },
+  { name: 'PRIME', tech: 'DATA' },
+  { name: 'NEXUS', tech: 'AI' },
+  { name: 'QUANTUM', tech: 'LOGIC' },
+];
+
+export default function LogoStrip() {
   return (
-    <section className="relative w-full bg-gradient-to-b from-slate-950 to-slate-900 py-8 md:py-12 border-y border-white/10">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 w-full">
-        <p className="text-center text-xs font-semibold text-gray-500 uppercase tracking-wider mb-8">
-          Trusted by leading companies
+    <section className="relative w-full bg-[#020617] py-16 border-y border-white/5">
+      {/* Subtly mask the edges for a high-end fade effect */}
+      <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#020617] to-transparent z-10" />
+      <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#020617] to-transparent z-10" />
+
+      <div className="max-w-7xl mx-auto px-6">
+        <p className="text-center text-[10px] font-bold text-slate-500 uppercase tracking-[0.3em] mb-12">
+          Powering the next generation of infrastructure
         </p>
         
-        <div className="flex flex-wrap items-center justify-center gap-12 md:gap-16">
+        <div className="flex flex-wrap items-center justify-center gap-x-16 gap-y-10 md:gap-x-24">
           {companies.map((company, index) => (
-            <div
+            <motion.div
               key={index}
-              className="flex items-center space-x-3 group cursor-pointer opacity-60 hover:opacity-100 transition-opacity duration-300"
+              initial={{ opacity: 0.3 }}
+              whileHover={{ opacity: 1, y: -2 }}
+              className="flex flex-col items-start group cursor-none"
             >
-              <span className="text-2xl">{company.icon}</span>
-              <span className="text-sm font-semibold text-gray-300">{company.name}</span>
-            </div>
+              <div className="flex items-center gap-2">
+                {/* Modern "Logo" mark: Minimal geometric shapes */}
+                <div className="w-1.5 h-4 bg-indigo-500/40 group-hover:bg-indigo-500 transition-colors" />
+                <span className="text-sm font-black text-slate-300 tracking-tighter group-hover:text-white transition-colors">
+                  {company.name}
+                </span>
+              </div>
+              <span className="text-[8px] font-mono text-slate-600 mt-1 ml-3 tracking-[0.1em]">
+                {company.tech}
+              </span>
+            </motion.div>
           ))}
         </div>
       </div>

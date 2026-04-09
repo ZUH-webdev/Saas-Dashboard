@@ -1,200 +1,191 @@
 import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { LayoutDashboard, Infinity, Blocks, ArrowUpRight, CheckCircle2 } from 'lucide-react';
 
 export default function ProductPreview() {
   const [activeTab, setActiveTab] = useState('dashboard');
 
-  return (
-    <section className="relative w-full bg-gradient-to-b from-slate-950 to-slate-900 py-20 md:py-28 lg:py-32 overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0">
-        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-96 h-96 bg-blue-600/5 rounded-full blur-3xl"></div>
-      </div>
+  const tabs = [
+    { id: 'dashboard', label: 'Analytics', icon: <LayoutDashboard size={14} /> },
+    { id: 'automation', label: 'Workflows', icon: <Infinity size={14} /> },
+    { id: 'integrations', label: 'Ecosystem', icon: <Blocks size={14} /> },
+  ];
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 w-full">
-        {/* Section Header */}
-        <div className="max-w-2xl mx-auto text-center mb-16 md:mb-20 lg:mb-24">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-            Powerful Dashboard Built for Scale
+  return (
+    <section className="relative py-32 bg-[#020617] overflow-hidden">
+      {/* BACKGROUND: Subtle Beam Effect */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[400px] bg-indigo-500/10 blur-[120px] rounded-full" />
+      
+      <div className="relative z-10 max-w-6xl mx-auto px-6">
+        {/* SECTION HEADER: High Contrast Typography */}
+        <div className="flex flex-col items-center text-center mb-16">
+          <h2 className="text-5xl md:text-7xl font-bold text-white tracking-tighter mb-6">
+            The engine for <br /> 
+            <span className="text-slate-500">modern enterprise.</span>
           </h2>
-          <p className="text-lg text-gray-400">
-            Real-time data, actionable insights, and seamless integrations all in one place.
+          <p className="text-slate-400 text-lg max-w-xl leading-relaxed">
+            A unified command center for your entire operation. Designed for high-velocity teams.
           </p>
         </div>
 
-        {/* Tabs */}
-        <div className="flex flex-wrap gap-2 md:gap-3 mb-10 md:mb-12 justify-center">
-          {[
-            { id: 'dashboard', label: '📊 Analytics Dashboard', title: 'Analytics Dashboard' },
-            { id: 'automation', label: '⚙️ Automation Workflows', title: 'Workflow Automation' },
-            { id: 'integrations', label: '🔗 Integrations', title: 'Integrations' },
-          ].map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              className={`px-4 md:px-6 py-2 md:py-3 rounded-lg font-semibold transition-all duration-300 text-sm md:text-base ${
-                activeTab === tab.id
-                  ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg shadow-blue-500/30'
-                  : 'bg-white/10 text-gray-300 hover:text-white border border-white/10 hover:border-white/20'
-              }`}
-            >
-              {tab.label}
-            </button>
-          ))}
-        </div>
-
-        {/* Preview Container */}
-        <div className="relative rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur p-6 md:p-8 overflow-hidden">
-          {/* Glow effect */}
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 pointer-events-none"></div>
-
-          {/* Content Area */}
-          <div className="relative z-10">
-            {/* Dashboard Preview */}
-            {activeTab === 'dashboard' && (
-              <div className="space-y-6 animate-in fade-in duration-300">
-                {/* Top Stats */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  <div className="bg-white/5 border border-white/10 rounded-lg p-6">
-                    <p className="text-xs text-gray-500 font-semibold uppercase tracking-wider">Total Revenue</p>
-                    <p className="text-3xl font-bold text-white mt-3">$124.5K</p>
-                    <p className="text-xs text-green-400 mt-2">↑ 24% vs last month</p>
-                  </div>
-                  <div className="bg-white/5 border border-white/10 rounded-lg p-6">
-                    <p className="text-xs text-gray-500 font-semibold uppercase tracking-wider">Active Users</p>
-                    <p className="text-3xl font-bold text-white mt-3">8,423</p>
-                    <p className="text-xs text-green-400 mt-2">↑ 12% vs last month</p>
-                  </div>
-                  <div className="bg-white/5 border border-white/10 rounded-lg p-6">
-                    <p className="text-xs text-gray-500 font-semibold uppercase tracking-wider">Conversion Rate</p>
-                    <p className="text-3xl font-bold text-white mt-3">3.8%</p>
-                    <p className="text-xs text-green-400 mt-2">↑ 0.4% vs last month</p>
-                  </div>
-                </div>
-
-                {/* Chart */}
-                <div className="bg-white/5 border border-white/10 rounded-lg p-6">
-                  <p className="text-xs text-gray-500 font-semibold uppercase tracking-wider mb-6">Revenue Trend (Last 30 days)</p>
-                  <div className="flex items-end gap-1 md:gap-2 h-40">
-                    {[45, 52, 48, 61, 55, 70, 65, 78, 72, 85, 90, 88, 95, 92, 98, 88, 92, 85, 78, 82, 88, 95, 92, 98, 105, 102, 110, 108, 115, 120].map((height, i) => (
-                      <div
-                        key={i}
-                        className="flex-1 bg-gradient-to-t from-blue-500/70 to-blue-400/30 rounded-t hover:from-blue-500 hover:to-blue-400 transition-all cursor-pointer"
-                        style={{ height: `${(height / 120) * 100}%` }}
-                      ></div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Table */}
-                <div className="bg-white/5 border border-white/10 rounded-lg overflow-hidden">
-                  <div className="px-6 py-4 border-b border-white/10 bg-white/[0.02]">
-                    <p className="text-xs text-gray-500 font-semibold uppercase tracking-wider">Top Performing Pages</p>
-                  </div>
-                  <div className="divide-y divide-white/10">
-                    {[
-                      { name: 'Dashboard', views: '4,234', bounce: '24%' },
-                      { name: 'Settings', views: '3,221', bounce: '19%' },
-                      { name: 'Reports', views: '2,890', bounce: '32%' },
-                    ].map((item, i) => (
-                      <div key={i} className="px-6 py-4 flex justify-between items-center hover:bg-white/[0.03] transition-colors">
-                        <span className="text-sm font-medium text-gray-300">{item.name}</span>
-                        <div className="flex items-center gap-8">
-                          <span className="text-sm text-gray-400">{item.views}</span>
-                          <span className="text-sm text-gray-400">{item.bounce}</span>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            )}
-
-            {/* Automation Preview */}
-            {activeTab === 'automation' && (
-              <div className="space-y-6 animate-in fade-in duration-300">
-                <div className="bg-white/5 border border-white/10 rounded-lg p-6">
-                  <p className="text-xs text-gray-500 font-semibold uppercase tracking-wider mb-6">Active Workflows</p>
-                  <div className="space-y-4">
-                    {[
-                      { name: 'Email Campaign', status: 'running', progress: 75 },
-                      { name: 'Data Sync', status: 'running', progress: 90 },
-                      { name: 'Report Generation', status: 'completed', progress: 100 },
-                    ].map((workflow, i) => (
-                      <div key={i} className="space-y-2">
-                        <div className="flex justify-between items-center">
-                          <span className="text-sm font-medium text-gray-300">{workflow.name}</span>
-                          <span className={`text-xs px-3 py-1 rounded-full font-medium ${
-                            workflow.status === 'running' ? 'bg-blue-500/20 text-blue-300' : 'bg-green-500/20 text-green-300'
-                          }`}>
-                            {workflow.status}
-                          </span>
-                        </div>
-                        <div className="w-full bg-white/5 rounded-full h-2 overflow-hidden">
-                          <div
-                            className="bg-gradient-to-r from-blue-500 to-purple-500 h-full rounded-full transition-all"
-                            style={{ width: `${workflow.progress}%` }}
-                          ></div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <button className="w-full px-6 py-4 border border-blue-500/50 text-blue-400 rounded-lg text-sm font-semibold hover:bg-blue-500/10 transition-colors">
-                  + Create New Workflow
-                </button>
-              </div>
-            )}
-
-            {/* Integrations Preview */}
-            {activeTab === 'integrations' && (
-              <div className="space-y-6 animate-in fade-in duration-300">
-                <p className="text-xs text-gray-500 font-semibold uppercase tracking-wider">Connected Services</p>
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-                  {[
-                    { name: 'Slack', connected: true, icon: '💬' },
-                    { name: 'Zapier', connected: true, icon: '⚡' },
-                    { name: 'Stripe', connected: true, icon: '💳' },
-                    { name: 'GitHub', connected: false, icon: '🐙' },
-                    { name: 'Google', connected: true, icon: '🔍' },
-                    { name: 'Asana', connected: false, icon: '📋' },
-                  ].map((service, i) => (
-                    <div
-                      key={i}
-                      className={`p-4 rounded-lg border text-center cursor-pointer transition-all ${
-                        service.connected
-                          ? 'bg-white/5 border-green-500/30 hover:border-green-500/50 hover:bg-green-500/10'
-                          : 'bg-white/[0.02] border-white/10 hover:border-white/20 opacity-50 hover:opacity-70'
-                      }`}
-                    >
-                      <div className="text-2xl mb-2">{service.icon}</div>
-                      <p className="text-xs font-medium text-gray-300">{service.name}</p>
-                      {service.connected && <p className="text-xs text-green-400 mt-2">Connected</p>}
-                    </div>
-                  ))}
-                </div>
-                <button className="w-full px-6 py-4 border border-blue-500/50 text-blue-400 rounded-lg text-sm font-semibold hover:bg-blue-500/10 transition-colors">
-                  Explore 500+ Integrations
-                </button>
-              </div>
-            )}
+        {/* TABS: Segmented Control Style */}
+        <div className="flex justify-center mb-12">
+          <div className="inline-flex items-center p-1 bg-white/[0.03] border border-white/5 rounded-full backdrop-blur-md">
+            {tabs.map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className={`relative flex items-center gap-2 px-6 py-2.5 rounded-full text-xs font-bold tracking-wide transition-all ${
+                  activeTab === tab.id ? "text-white" : "text-slate-500 hover:text-slate-300"
+                }`}
+              >
+                {activeTab === tab.id && (
+                  <motion.div
+                    layoutId="activeTab"
+                    className="absolute inset-0 bg-white/10 rounded-full border border-white/10"
+                    transition={{ type: "spring", duration: 0.5 }}
+                  />
+                )}
+                <span className="relative z-10 flex items-center gap-2">
+                  {tab.icon} {tab.label.toUpperCase()}
+                </span>
+              </button>
+            ))}
           </div>
         </div>
 
-        {/* Feature cards below preview */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mt-12 md:mt-16">
-          {[
-            { title: 'Real-time Sync', desc: 'Data updates instantly across all your tools' },
-            { title: 'Custom Reports', desc: 'Generate reports tailored to your needs' },
-            { title: 'Mobile Dashboard', desc: 'Monitor everything on the go' },
-          ].map((feature, i) => (
-            <div key={i} className="text-center p-6">
-              <h3 className="text-lg font-bold text-white mb-2">{feature.title}</h3>
-              <p className="text-gray-400 text-sm">{feature.desc}</p>
+        {/* PREVIEW CONTAINER: Browser Frame Aesthetic */}
+        <div className="relative group">
+          {/* Outer Shadow Glow */}
+          <div className="absolute -inset-4 bg-indigo-500/5 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+          
+          <div className="relative rounded-[32px] border border-white/10 bg-[#030712] shadow-2xl overflow-hidden">
+            {/* Top Bar (Browser Mockup) */}
+            <div className="h-12 border-b border-white/5 bg-white/[0.02] flex items-center px-6 gap-2">
+              <div className="flex gap-1.5">
+                <div className="w-2 h-2 rounded-full bg-white/10" />
+                <div className="w-2 h-2 rounded-full bg-white/10" />
+                <div className="w-2 h-2 rounded-full bg-white/10" />
+              </div>
+              <div className="mx-auto bg-white/5 px-4 py-1 rounded-md text-[10px] text-slate-500 font-mono">
+                nexus-os.sh/cloud/{activeTab}
+              </div>
             </div>
-          ))}
+
+            {/* Dynamic Content */}
+            <div className="p-8 md:p-12 min-h-[500px]">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeTab}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  {activeTab === 'dashboard' && <AnalyticsView />}
+                  {activeTab === 'automation' && <WorkflowView />}
+                  {activeTab === 'integrations' && <EcosystemView />}
+                </motion.div>
+              </AnimatePresence>
+            </div>
+          </div>
+        </div>
+
+        {/* BOTTOM SPECS: Technical Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 border-t border-white/5 mt-20">
+          <div className="p-8 border-r border-white/5">
+            <h4 className="text-white text-sm font-bold mb-2 tracking-tight">01 — Real-time Sync</h4>
+            <p className="text-slate-500 text-xs leading-relaxed">Multi-region database propagation with zero lag.</p>
+          </div>
+          <div className="p-8 border-r border-white/5">
+            <h4 className="text-white text-sm font-bold mb-2 tracking-tight">02 — Custom Logic</h4>
+            <p className="text-slate-500 text-xs leading-relaxed">Deploy edge functions directly from the UI.</p>
+          </div>
+          <div className="p-8">
+            <h4 className="text-white text-sm font-bold mb-2 tracking-tight">03 — Open API</h4>
+            <p className="text-slate-500 text-xs leading-relaxed">Full programmatic control over every node.</p>
+          </div>
         </div>
       </div>
     </section>
+  );
+}
+
+// SUB-COMPONENTS FOR CLEANLINESS
+
+function AnalyticsView() {
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="md:col-span-2 space-y-6">
+        <div className="h-64 bg-white/[0.02] border border-white/5 rounded-2xl p-6 relative overflow-hidden">
+          <div className="flex justify-between items-start mb-8">
+            <p className="text-xs font-bold text-indigo-400 uppercase tracking-widest">Growth Velocity</p>
+            <span className="text-[10px] text-slate-500 font-mono">Live Feed</span>
+          </div>
+          <div className="flex items-end gap-2 h-32">
+            {[30, 45, 35, 60, 55, 80, 75, 90, 85, 100, 95].map((h, i) => (
+              <motion.div 
+                key={i} 
+                initial={{ height: 0 }}
+                animate={{ height: `${h}%` }}
+                className="flex-1 bg-gradient-to-t from-indigo-500 to-indigo-400/50 rounded-t-sm" 
+              />
+            ))}
+          </div>
+        </div>
+        <div className="grid grid-cols-2 gap-4">
+          <div className="p-6 bg-white/[0.02] border border-white/5 rounded-2xl">
+            <p className="text-[10px] text-slate-500 font-bold uppercase tracking-widest mb-1">Retention</p>
+            <p className="text-2xl font-bold text-white">99.2%</p>
+          </div>
+          <div className="p-6 bg-white/[0.02] border border-white/5 rounded-2xl">
+            <p className="text-[10px] text-slate-500 font-bold uppercase tracking-widest mb-1">Churn Rate</p>
+            <p className="text-2xl font-bold text-white">0.4%</p>
+          </div>
+        </div>
+      </div>
+      <div className="bg-indigo-600/5 border border-indigo-500/20 rounded-2xl p-8 flex flex-col justify-center text-center">
+        <div className="w-12 h-12 bg-indigo-500 rounded-full mx-auto mb-4 flex items-center justify-center text-white">
+          <ArrowUpRight size={20} />
+        </div>
+        <h4 className="text-white font-bold mb-2">Upgrade to Pro</h4>
+        <p className="text-slate-400 text-xs leading-relaxed mb-6">Unlock advanced forecasting and ML-driven insights.</p>
+        <button className="py-2.5 bg-white text-black text-[11px] font-black rounded-lg">GET ACCESS</button>
+      </div>
+    </div>
+  );
+}
+
+function WorkflowView() {
+  return (
+    <div className="space-y-4">
+      {['Customer Onboarding', 'Inventory Sync', 'Security Audit'].map((item, i) => (
+        <div key={i} className="group p-4 bg-white/[0.02] border border-white/5 rounded-xl flex items-center justify-between hover:border-white/10 transition-colors">
+          <div className="flex items-center gap-4">
+            <CheckCircle2 size={18} className="text-emerald-500" />
+            <span className="text-sm font-medium text-slate-200">{item}</span>
+          </div>
+          <div className="flex items-center gap-4">
+            <div className="px-2 py-1 bg-emerald-500/10 text-emerald-500 text-[10px] font-bold rounded uppercase">Active</div>
+            <div className="w-20 h-1.5 bg-white/5 rounded-full overflow-hidden">
+               <div className="h-full bg-white/20 w-3/4" />
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function EcosystemView() {
+  return (
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      {['Slack', 'GitHub', 'AWS', 'Stripe', 'Figma', 'Linear', 'Discord', 'Notion'].map((app) => (
+        <div key={app} className="p-6 bg-white/[0.02] border border-white/5 rounded-2xl flex flex-col items-center justify-center grayscale hover:grayscale-0 transition-all cursor-pointer">
+          <div className="w-8 h-8 bg-white/10 rounded-lg mb-3" />
+          <span className="text-xs font-bold text-slate-400">{app}</span>
+        </div>
+      ))}
+    </div>
   );
 }

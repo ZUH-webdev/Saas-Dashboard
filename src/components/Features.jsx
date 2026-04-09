@@ -1,89 +1,38 @@
+import { motion } from "framer-motion";
+import { Zap, BarChart3, Link2, ShieldCheck, Settings2, Rocket } from "lucide-react";
+
+const features = [
+  { title: "AI Automation", desc: "Offload cognitive heavy lifting to our neural engine.", icon: <Zap size={20} /> },
+  { title: "Real-time Analytics", desc: "Sub-100ms latency metrics for high-velocity teams.", icon: <BarChart3 size={20} /> },
+  { title: "Smart Integrations", desc: "Connect your entire stack with native webhooks.", icon: <Link2 size={20} /> },
+  { title: "Enterprise Security", desc: "SOC2 Type II, HIPAA, and GDPR compliant.", icon: <ShieldCheck size={20} /> },
+  { title: "Custom Workflows", desc: "Logic-based orchestration without the bloat.", icon: <Settings2 size={20} /> },
+  { title: "Lightning Fast", desc: "Edge-runtime performance built for global scale.", icon: <Rocket size={20} /> },
+];
+
 export default function Features() {
-  const features = [
-    {
-      icon: '⚡',
-      title: 'AI Automation',
-      description: 'Let AI handle repetitive tasks while you focus on what matters most.',
-    },
-    {
-      icon: '📊',
-      title: 'Real-time Analytics',
-      description: 'Get instant insights into your business metrics in real-time dashboards.',
-    },
-    {
-      icon: '🔗',
-      title: 'Smart Integrations',
-      description: 'Connect seamlessly with 500+ tools and services. No coding required.',
-    },
-    {
-      icon: '🔒',
-      title: 'Enterprise Security',
-      description: 'Bank-level encryption and compliance with GDPR, SOC 2, and HIPAA.',
-    },
-    {
-      icon: '⚙️',
-      title: 'Customizable Workflows',
-      description: 'Build custom workflows without coding. No limits to creativity.',
-    },
-    {
-      icon: '🚀',
-      title: 'Lightning Fast',
-      description: 'Sub-millisecond response times. Built for scale. Handles millions of operations.',
-    },
-  ];
-
   return (
-    <section id="features" className="relative w-full bg-gradient-to-b from-slate-900 to-slate-950 py-20 md:py-28 lg:py-32 overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-1/4 right-0 w-96 h-96 bg-purple-600/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-blue-600/5 rounded-full blur-3xl"></div>
-      </div>
-
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 w-full">
-        {/* Section Header */}
-        <div className="max-w-2xl mx-auto text-center mb-16 md:mb-20 lg:mb-24">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-            Powerful features for modern teams
+    <section className="py-32 bg-[#020617] border-t border-white/5">
+      <div className="max-w-6xl mx-auto px-6">
+        {/* Minimalist Header */}
+        <div className="mb-20">
+          <h2 className="text-4xl md:text-5xl font-medium text-white tracking-tighter">
+            Platform Capabilities
           </h2>
-          <p className="text-lg text-gray-400">
-            Everything you need to automate, analyze, and scale your business. Built by developers, for developers.
-          </p>
+          <div className="h-px w-20 bg-white/20 mt-6" />
         </div>
 
-        {/* Features Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {features.map((feature, index) => (
-            <div
-              key={index}
-              className="group h-full relative p-6 bg-white/5 border border-white/10 rounded-2xl hover:border-white/30 hover:bg-white/[0.08] transition-all duration-300 overflow-hidden"
-            >
-              {/* Hover Glow */}
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/0 to-purple-500/0 group-hover:from-blue-500/10 group-hover:to-purple-500/10 transition-all duration-300 pointer-events-none"></div>
-
-              {/* Content */}
-              <div className="relative z-10 flex flex-col h-full space-y-4">
-                {/* Icon */}
-                <div className="text-4xl">{feature.icon}</div>
-
-                {/* Title */}
-                <h3 className="text-xl font-bold text-white mt-2">
-                  {feature.title}
-                </h3>
-
-                {/* Description */}
-                <p className="text-gray-400 text-sm leading-relaxed flex-grow">
-                  {feature.description}
-                </p>
-
-                {/* Learn More Link */}
-                <div className="flex items-center space-x-2 text-blue-400 group-hover:text-blue-300 transition-colors text-sm font-medium pt-4">
-                  <span>Learn more</span>
-                  <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </div>
-              </div>
+        {/* Feature Grid: High contrast, thin lines */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/10 border border-white/10 rounded-2xl overflow-hidden">
+          {features.map((f, i) => (
+            <div key={i} className="bg-[#020617] p-8 hover:bg-white/[0.02] transition-colors">
+              <div className="text-indigo-400 mb-6">{f.icon}</div>
+              <h3 className="text-sm font-semibold text-white mb-2 tracking-wide uppercase">
+                {f.title}
+              </h3>
+              <p className="text-sm text-slate-500 leading-relaxed max-w-[200px]">
+                {f.desc}
+              </p>
             </div>
           ))}
         </div>

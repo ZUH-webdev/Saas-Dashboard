@@ -1,63 +1,31 @@
 export default function CTA() {
   return (
-    <section id="cta" className="relative w-full bg-gradient-to-b from-slate-900 to-slate-950 py-20 md:py-28 lg:py-32 overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-96 bg-gradient-to-b from-blue-600/10 to-transparent"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-600/5 rounded-full blur-3xl"></div>
-      </div>
+    <section id="cta" className="w-full px-5 py-14 sm:px-6 md:px-10 md:py-24">
+      <div className="mx-auto max-w-6xl rounded-[2.2rem] border border-slate-200 bg-gradient-to-r from-indigo-50/70 via-white to-blue-50/70 p-7 text-center shadow-[0_24px_80px_-42px_rgba(15,23,42,0.32)] md:p-14">
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">Start Today</p>
+        <h2 className="mx-auto mt-4 max-w-3xl text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl md:text-5xl">
+          Turn AI strategy into revenue, faster.
+        </h2>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 w-full">
-        <div className="max-w-3xl mx-auto text-center">
-          {/* Headline */}
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-            Ready to transform your workflow?
-          </h2>
+        <p className="mx-auto mt-5 max-w-2xl text-base text-slate-600 sm:text-lg">
+          Start with Nexus AI to ship production-ready workflows, improve decision quality, and scale with confidence.
+        </p>
 
-          <p className="text-xl text-gray-400 mb-12">
-            Join thousands of teams already using BuildAI to automate, analyze, and scale. Start free today—no credit card required.
-          </p>
+        <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <button className="w-full rounded-xl bg-gradient-to-r from-[#5B5FFF] via-[#7C4DFF] to-[#3B82F6] px-8 py-3.5 text-sm font-semibold text-white shadow-[0_20px_48px_-24px_rgba(91,95,255,0.75)] transition-all hover:brightness-105 sm:w-auto">
+            Start Free Trial
+          </button>
+          <button className="w-full rounded-xl border border-slate-200 bg-white px-8 py-3.5 text-sm font-semibold text-slate-700 transition-all hover:bg-slate-50 sm:w-auto">
+            Talk to Sales
+          </button>
+        </div>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4 mb-8 md:mb-12">
-            <button className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-blue-500/40 whitespace-nowrap">
-              Start Free Trial
-            </button>
-            <button className="w-full sm:w-auto px-8 py-4 bg-white/10 hover:bg-white/15 border border-white/20 text-white font-semibold rounded-lg transition-all duration-300">
-              Schedule Demo
-            </button>
-          </div>
-
-          {/* Trust Badge */}
-          <div className="flex flex-wrap items-center justify-center gap-2 md:gap-4 text-xs md:text-sm text-gray-400">
-            <span>✓ 14-day free trial</span>
-            <span>•</span>
-            <span>No credit card required</span>
-            <span>•</span>
-            <span>Cancel anytime</span>
-          </div>
-
-          {/* Feature Grid Below Buttons */}
-          <div className="mt-12 md:mt-16 lg:mt-20 pt-8 md:pt-12 border-t border-white/10">
-            <p className="text-sm font-medium text-gray-400 mb-8">Why teams choose BuildAI</p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-              <div className="text-center">
-                <div className="text-3xl mb-3">⚡</div>
-                <p className="text-gray-300 font-semibold mb-2">10x Faster</p>
-                <p className="text-sm text-gray-400">Automate repetitive tasks and save 20 hours per week</p>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl mb-3">🔒</div>
-                <p className="text-gray-300 font-semibold mb-2">Enterprise Security</p>
-                <p className="text-sm text-gray-400">SOC 2 Type II certified with end-to-end encryption</p>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl mb-3">🤝</div>
-                <p className="text-gray-300 font-semibold mb-2">24/7 Support</p>
-                <p className="text-sm text-gray-400">Expert team ready to help you succeed</p>
-              </div>
-            </div>
-          </div>
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-2 text-xs text-slate-500 sm:gap-4">
+          <span>14-day trial</span>
+          <span>•</span>
+          <span>No credit card required</span>
+          <span>•</span>
+          <span>Cancel anytime</span>
         </div>
       </div>
     </section>

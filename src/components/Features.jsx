@@ -12,28 +12,36 @@ const features = [
 
 export default function Features() {
   return (
-    <section className="py-32 bg-[#020617] border-t border-white/5">
+    <section id="features" className="px-6 py-20 md:px-10 md:py-24">
       <div className="max-w-6xl mx-auto px-6">
-        {/* Minimalist Header */}
-        <div className="mb-20">
-          <h2 className="text-4xl md:text-5xl font-medium text-white tracking-tighter">
-            Platform Capabilities
+        <div className="mb-14 max-w-2xl">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">Features</p>
+          <h2 className="mt-3 text-4xl font-semibold tracking-tight text-slate-900 md:text-5xl">
+            Built for teams that care about precision and speed.
           </h2>
-          <div className="h-px w-20 bg-white/20 mt-6" />
+          <p className="mt-4 text-slate-600">
+            Every capability is engineered to shorten the path from AI idea to measurable business impact.
+          </p>
         </div>
 
-        {/* Feature Grid: High contrast, thin lines */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/10 border border-white/10 rounded-2xl overflow-hidden">
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
           {features.map((f, i) => (
-            <div key={i} className="bg-[#020617] p-8 hover:bg-white/[0.02] transition-colors">
-              <div className="text-indigo-400 mb-6">{f.icon}</div>
-              <h3 className="text-sm font-semibold text-white mb-2 tracking-wide uppercase">
-                {f.title}
-              </h3>
-              <p className="text-sm text-slate-500 leading-relaxed max-w-[200px]">
-                {f.desc}
-              </p>
-            </div>
+            <motion.article
+              key={i}
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.4 }}
+              transition={{ duration: 0.35, delay: i * 0.05 }}
+              whileHover={{ y: -5 }}
+              className="group rounded-2xl border border-slate-200 bg-white p-7 shadow-[0_16px_44px_-32px_rgba(15,23,42,0.38)] transition-all duration-300"
+            >
+              <div className="mb-5 inline-flex rounded-xl border border-indigo-100 bg-gradient-to-br from-indigo-50 to-blue-50 p-3 text-indigo-600 shadow-sm">
+                {f.icon}
+              </div>
+              <h3 className="mb-2 text-base font-semibold text-slate-900">{f.title}</h3>
+              <p className="text-sm leading-relaxed text-slate-600">{f.desc}</p>
+              <div className="mt-6 h-px w-full bg-gradient-to-r from-indigo-200/80 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+            </motion.article>
           ))}
         </div>
       </div>

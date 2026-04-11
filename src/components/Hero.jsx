@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 import { Play, ArrowRight, Sparkles, ShieldCheck, Zap } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import ContactModal from "./ContactModal"; 
+import ContactModal from "./ContactModal";
 import DemoModal from "./DemoModal";
 
 export default function Hero() {
@@ -21,150 +21,175 @@ export default function Hero() {
     <>
       <section
         ref={containerRef}
-        className="relative w-full min-h-screen pt-32 pb-20 overflow-hidden bg-[#020617]"
+        className="relative w-full overflow-hidden px-5 pb-16 pt-24 sm:px-6 md:px-10 md:pb-20 md:pt-32"
       >
-        {/* PREMIUM BACKGROUND ARTIFACTS */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-indigo-500/10 blur-[120px] rounded-full animate-pulse" />
-          <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 brightness-100 contrast-150 mix-blend-overlay"></div>
-          <div className="absolute inset-0 opacity-[0.03]" style={{ 
-            backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 0)`,
-            backgroundSize: '40px 40px' 
-          }}></div>
+          <div className="absolute left-1/2 top-10 h-[26rem] w-[26rem] -translate-x-1/2 rounded-full bg-gradient-to-r from-indigo-200/55 via-violet-200/55 to-blue-200/55 blur-3xl" />
+          <div className="absolute inset-x-0 top-8 h-[55%] bg-[url('/neural-pattern.svg')] bg-cover bg-top opacity-[0.22]" />
+          <div className="absolute -right-14 top-1/3 h-48 w-48 rounded-full border border-slate-200 bg-white/70 shadow-[0_20px_50px_-36px_rgba(15,23,42,0.45)]" />
+          <div className="absolute -left-16 bottom-20 h-56 w-56 rounded-full border border-slate-200/80 bg-white/60 shadow-[0_20px_50px_-36px_rgba(15,23,42,0.45)]" />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="flex flex-col lg:flex-row gap-20 items-center">
-            
-            {/* LEFT CONTENT */}
-            <motion.div 
+        <div className="relative z-10 mx-auto max-w-7xl">
+          <div className="grid items-center gap-14 lg:grid-cols-2">
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="flex-1 space-y-10 text-center lg:text-left"
+              transition={{ duration: 0.7 }}
+              className="space-y-8 text-center lg:text-left"
             >
-              <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-white/[0.03] border border-white/10 text-[10px] font-bold uppercase tracking-[0.2em] text-indigo-400">
-                <Sparkles size={12} className="animate-pulse" />
-                <span>Next-Gen Infrastructure</span>
+              <div className="inline-flex items-center gap-3 rounded-full border border-slate-200 bg-white/85 px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-700 shadow-sm">
+                <Sparkles size={12} className="text-indigo-500" />
+                <span>AI Operating Layer</span>
               </div>
 
-              <h1 className="text-6xl md:text-7xl lg:text-8xl font-black text-white leading-[0.9] tracking-tighter">
-                Build <span className="text-slate-500 italic">Faster</span> <br />
-                <span className="bg-gradient-to-r from-white to-indigo-400 text-transparent bg-clip-text">
-                  AI-Native Intelligence
+              <h1 className="text-[2.35rem] font-semibold leading-[0.95] tracking-tight text-slate-900 sm:text-5xl md:text-6xl lg:text-7xl">
+                Ship Reliable
+                <br />
+                <span className="bg-gradient-to-r from-[#5B5FFF] via-[#7C4DFF] to-[#3B82F6] bg-clip-text text-transparent">
+                  AI Products Faster
                 </span>
               </h1>
 
-              <p className="text-lg text-slate-400 max-w-lg mx-auto lg:mx-0 leading-relaxed font-medium">
-                The automation engine for high-growth teams. Stop fighting legacy workflows and start scaling with neural-optimized logic.
+              <p className="mx-auto max-w-xl text-base leading-relaxed text-slate-600 sm:text-lg lg:mx-0">
+                Nexus AI gives product and engineering teams one operating layer for orchestration, evaluation, and automation so every release drives measurable business impact.
               </p>
 
-              <div className="flex flex-col sm:flex-row items-center gap-4 pt-4 justify-center lg:justify-start">
-                <button 
+              <div className="flex flex-col items-center gap-4 pt-2 sm:flex-row lg:justify-start">
+                <button
                   onClick={() => setIsModalOpen(true)}
-                  className="group relative px-8 py-4 bg-white text-black font-black text-xs uppercase tracking-widest rounded-full hover:bg-indigo-50 transition-all active:scale-95 w-full sm:w-auto"
+                  className="group relative w-full rounded-xl bg-gradient-to-r from-[#5B5FFF] via-[#7C4DFF] to-[#3B82F6] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_20px_48px_-24px_rgba(91,95,255,0.75)] transition-all duration-300 hover:brightness-105 active:scale-[0.99] sm:w-auto"
                 >
-                  Get Started Free
+                  Start Free Trial
+                  <ArrowRight className="ml-2 inline-block h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </button>
 
-                <button 
+                <button
                   onClick={() => setIsDemoOpen(true)}
-                  className="px-8 py-4 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 text-white text-xs font-black uppercase tracking-widest transition-all backdrop-blur-sm flex items-center justify-center gap-3 w-full sm:w-auto"
+                  className="flex w-full items-center justify-center gap-3 rounded-xl border border-slate-200 bg-white/85 px-7 py-3.5 text-sm font-semibold text-slate-700 transition-all duration-300 hover:-translate-y-0.5 hover:bg-white sm:w-auto"
                 >
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/20 flex items-center justify-center">
-                    <Play size={12} fill="currentColor" className="text-indigo-400 ml-0.5" />
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-indigo-100 text-indigo-600">
+                    <Play size={12} fill="currentColor" className="ml-0.5" />
                   </div>
-                  Watch Demo
+                  See 60s Demo
                 </button>
               </div>
 
-              {/* REFINED LOGO STRIP */}
-              <div className="pt-16 border-t border-white/5">
-                <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-600 mb-8">Powering the Elite</p>
-                <div className="flex flex-wrap justify-center lg:justify-start gap-x-12 gap-y-6 opacity-30">
-                   {['ACME', 'VERTEX', 'NEXUS', 'PRIME'].map((name) => (
-                     <span key={name} className="text-sm font-black text-white tracking-tighter italic">{name}</span>
-                   ))}
-                </div>
+              <div className="flex flex-wrap items-center justify-center gap-3 pt-4 lg:justify-start">
+                {["Enterprise-grade", "SOC2 Ready", "99.99% Uptime"].map((badge) => (
+                  <span
+                    key={badge}
+                    className="rounded-full border border-slate-200 bg-white/80 px-3 py-1 text-xs font-medium text-slate-600"
+                  >
+                    {badge}
+                  </span>
+                ))}
+              </div>
+
+              <div className="grid max-w-xl grid-cols-1 gap-3 rounded-2xl border border-slate-200 bg-white/70 p-4 backdrop-blur sm:grid-cols-3">
+                {[
+                  { label: "Inference speed", value: "42ms" },
+                  { label: "Model uptime", value: "99.99%" },
+                  { label: "Automations/day", value: "1.8M" },
+                ].map((item) => (
+                  <div key={item.label} className="text-left">
+                    <p className="text-lg font-semibold text-slate-900">{item.value}</p>
+                    <p className="text-xs text-slate-500">{item.label}</p>
+                  </div>
+                ))}
               </div>
             </motion.div>
 
-            {/* RIGHT VISUAL */}
-            <motion.div 
-              style={{ y: y1 }}
-              className="flex-1 relative w-full group"
-            >
-              {/* Main Dashboard Mock */}
-              <div className="relative rounded-[2.5rem] border border-white/10 bg-[#0a0f1d] p-3 shadow-2xl overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500/10 to-transparent pointer-events-none" />
-                
-                {/* Internal Browser UI */}
-                <div className="bg-[#020617] rounded-[1.8rem] border border-white/5 overflow-hidden">
-                  <div className="flex items-center justify-between px-6 py-4 border-b border-white/5 bg-white/[0.02]">
+            <motion.div style={{ y: y1 }} className="relative">
+              <div className="relative rounded-[2rem] border border-slate-200 bg-white/90 p-3 shadow-[0_26px_80px_-36px_rgba(15,23,42,0.34)] backdrop-blur">
+                <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-indigo-100/45 via-transparent to-blue-100/45" />
+
+                <div className="relative overflow-hidden rounded-[1.5rem] border border-slate-200 bg-white">
+                  <div className="flex items-center justify-between border-b border-slate-200 px-5 py-3">
                     <div className="flex gap-2">
-                      <div className="w-2 h-2 rounded-full bg-white/10" />
-                      <div className="w-2 h-2 rounded-full bg-white/10" />
+                      <div className="h-2.5 w-2.5 rounded-full bg-slate-200" />
+                      <div className="h-2.5 w-2.5 rounded-full bg-slate-200" />
                     </div>
-                    <div className="text-[10px] text-slate-600 font-mono tracking-widest uppercase">Nexus Operational Center</div>
-                    <div className="w-4 h-4 bg-indigo-500/20 rounded-sm" />
+                    <div className="text-[10px] font-medium uppercase tracking-[0.16em] text-slate-500">Nexus AI Control</div>
+                    <div className="rounded-full border border-emerald-200 bg-emerald-50 px-2 py-0.5 text-[10px] font-medium text-emerald-700">
+                      Live
+                    </div>
                   </div>
-                  
-                  <div className="p-8 space-y-8">
-                    <div className="flex justify-between items-start">
-                      <div className="space-y-2">
-                        <span className="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Growth Velocity</span>
-                        <div className="text-4xl font-black text-white tracking-tighter">+128.4%</div>
+
+                  <div className="space-y-6 p-6">
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="rounded-xl border border-slate-200 bg-slate-50/70 p-4">
+                        <p className="text-xs text-slate-500">Forecast precision</p>
+                        <p className="mt-2 text-2xl font-semibold text-slate-900">97.6%</p>
                       </div>
-                      <div className="px-3 py-1 bg-indigo-500 text-black text-[10px] font-black rounded-full">ACTIVE</div>
+                      <div className="rounded-xl border border-slate-200 bg-slate-50/70 p-4">
+                        <p className="text-xs text-slate-500">Workflow success</p>
+                        <p className="mt-2 text-2xl font-semibold text-slate-900">+128%</p>
+                      </div>
                     </div>
 
-                    <div className="flex items-end gap-3 h-40">
-                      {[40, 70, 45, 90, 65, 80, 100, 60].map((h, i) => (
-                        <motion.div
-                          key={i}
-                          initial={{ height: 0 }}
-                          animate={{ height: `${h}%` }}
-                          transition={{ duration: 1.5, delay: i * 0.1, ease: "circOut" }}
-                          className="flex-1 bg-gradient-to-t from-indigo-600 to-indigo-400/10 rounded-full"
-                        />
-                      ))}
+                    <div className="rounded-xl border border-slate-200 bg-gradient-to-b from-slate-50 to-white p-4">
+                      <div className="mb-4 flex items-center justify-between">
+                        <p className="text-xs font-medium text-slate-500">Decision throughput</p>
+                        <p className="text-xs text-slate-400">Last 24h</p>
+                      </div>
+                      <div className="flex h-28 items-end gap-2">
+                        {[36, 54, 46, 72, 63, 58, 80, 93].map((h, i) => (
+                          <motion.div
+                            key={i}
+                            initial={{ height: 0 }}
+                            animate={{ height: `${h}%` }}
+                            transition={{ duration: 0.7, delay: i * 0.06 }}
+                            className="flex-1 rounded-full bg-gradient-to-t from-[#5B5FFF] via-[#7C4DFF] to-[#3B82F6]/40"
+                          />
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="rounded-xl border border-slate-200 bg-slate-50/60 p-4">
+                      <p className="text-xs font-medium text-slate-500">AI workflow</p>
+                      <div className="mt-3 flex items-center gap-2 text-xs text-slate-600">
+                        <span className="rounded-full bg-blue-100 px-2 py-1 text-blue-700">Ingest</span>
+                        <ArrowRight className="h-3.5 w-3.5 text-slate-400" />
+                        <span className="rounded-full bg-violet-100 px-2 py-1 text-violet-700">Reason</span>
+                        <ArrowRight className="h-3.5 w-3.5 text-slate-400" />
+                        <span className="rounded-full bg-indigo-100 px-2 py-1 text-indigo-700">Act</span>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* FLOATING STATUS CARDS */}
-              <motion.div 
+              <motion.div
                 style={{ y: y2 }}
-                className="absolute -top-10 -right-8 p-5 bg-[#0a0f1d]/80 backdrop-blur-2xl border border-white/10 rounded-3xl shadow-2xl hidden md:block"
+                className="absolute -right-5 -top-8 hidden rounded-2xl border border-slate-200 bg-white/90 p-4 shadow-[0_20px_52px_-34px_rgba(15,23,42,0.42)] md:block"
               >
                 <div className="flex items-center gap-4">
-                  <div className="p-3 bg-emerald-500/10 rounded-2xl text-emerald-400">
+                  <div className="rounded-xl bg-emerald-50 p-3 text-emerald-600">
                     <ShieldCheck size={24} strokeWidth={1.5} />
                   </div>
                   <div>
-                    <div className="text-[9px] text-slate-500 uppercase font-black tracking-widest">Infrastructure</div>
-                    <div className="text-xs text-white font-bold tracking-tight">Verified Lvl 4</div>
+                    <div className="text-[10px] uppercase tracking-[0.16em] text-slate-500">Infrastructure</div>
+                    <div className="text-xs font-medium text-slate-800">Verified Level 4</div>
                   </div>
                 </div>
               </motion.div>
 
-              <motion.div 
+              <motion.div
                 style={{ y: y1 }}
-                className="absolute -bottom-6 -left-8 p-5 bg-[#0a0f1d]/80 backdrop-blur-2xl border border-white/10 rounded-3xl shadow-2xl hidden md:block"
+                className="absolute -bottom-6 -left-6 hidden rounded-2xl border border-slate-200 bg-white/90 p-4 shadow-[0_20px_52px_-34px_rgba(15,23,42,0.42)] md:block"
               >
                 <div className="flex items-center gap-4">
-                  <div className="p-3 bg-indigo-500/10 rounded-2xl text-indigo-400">
+                  <div className="rounded-xl bg-indigo-50 p-3 text-indigo-600">
                     <Zap size={24} strokeWidth={1.5} />
                   </div>
                   <div>
-                    <div className="text-[9px] text-slate-500 uppercase font-black tracking-widest">Neural Latency</div>
-                    <div className="text-xs text-white font-bold tracking-tight">0.02ms Peak</div>
+                    <div className="text-[10px] uppercase tracking-[0.16em] text-slate-500">Neural latency</div>
+                    <div className="text-xs font-medium text-slate-800">42ms median</div>
                   </div>
                 </div>
               </motion.div>
             </motion.div>
-
           </div>
         </div>
       </section>

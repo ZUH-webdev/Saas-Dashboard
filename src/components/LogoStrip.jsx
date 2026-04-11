@@ -11,32 +11,30 @@ const companies = [
 
 export default function LogoStrip() {
   return (
-    <section className="relative w-full bg-[#020617] py-16 border-y border-white/5">
-      {/* Subtly mask the edges for a high-end fade effect */}
-      <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#020617] to-transparent z-10" />
-      <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#020617] to-transparent z-10" />
+    <section className="relative w-full py-12 md:py-14">
+      <div className="absolute inset-y-0 left-0 z-10 w-32 bg-gradient-to-r from-[#F7F8FA] to-transparent" />
+      <div className="absolute inset-y-0 right-0 z-10 w-32 bg-gradient-to-l from-[#F7F8FA] to-transparent" />
 
       <div className="max-w-7xl mx-auto px-6">
-        <p className="text-center text-[10px] font-bold text-slate-500 uppercase tracking-[0.3em] mb-12">
-          Powering the next generation of infrastructure
+        <p className="mb-8 text-center text-[10px] font-semibold uppercase tracking-[0.28em] text-slate-500">
+          Trusted by ambitious product teams
         </p>
-        
+
         <div className="flex flex-wrap items-center justify-center gap-x-16 gap-y-10 md:gap-x-24">
           {companies.map((company, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0.3 }}
-              whileHover={{ opacity: 1, y: -2 }}
-              className="flex flex-col items-start group cursor-none"
+              initial={{ opacity: 0.65 }}
+              whileHover={{ opacity: 1, y: -3 }}
+              className="group flex cursor-default flex-col items-start"
             >
               <div className="flex items-center gap-2">
-                {/* Modern "Logo" mark: Minimal geometric shapes */}
-                <div className="w-1.5 h-4 bg-indigo-500/40 group-hover:bg-indigo-500 transition-colors" />
-                <span className="text-sm font-black text-slate-300 tracking-tighter group-hover:text-white transition-colors">
+                <div className="h-4 w-1.5 bg-slate-300 transition-colors group-hover:bg-gradient-to-b group-hover:from-[#5B5FFF] group-hover:to-[#3B82F6]" />
+                <span className="text-sm font-semibold tracking-tight text-slate-400 grayscale transition-all group-hover:grayscale-0 group-hover:text-slate-700">
                   {company.name}
                 </span>
               </div>
-              <span className="text-[8px] font-mono text-slate-600 mt-1 ml-3 tracking-[0.1em]">
+              <span className="ml-3 mt-1 text-[8px] font-medium tracking-[0.16em] text-slate-400">
                 {company.tech}
               </span>
             </motion.div>
